@@ -8,5 +8,6 @@ O presente projeto refere-se ao desenvolvimento de um sistema Java utilizando JP
 
 ## Modelagem Realizada
 A modelagem do sistema incluiu as seguintes entidades e seus relacionamentos:
+-- Algumas alterações foram realizadas de forma a deixar a modelagem mais coerente com os conteúdos trabalhados em sala de aula. 
 
 ![Modelagem](img/modelagem.JPG)
