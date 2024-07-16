@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.List;
 import net.bytebuddy.asm.Advice;
 import org.junit.After;
 import org.junit.Before;
@@ -113,6 +114,7 @@ public class TestePersistencia {
     //@Test
     public void testePersistenciaCollection() throws Exception{
         
+        List<Locacao> locacoes = new ArrayList();
         
         Proprietario p1 = new Proprietario(); //CRIANDO E PERSISTINDO PROPRIETARIO
         p1.setCpf("22233344455");
@@ -148,14 +150,21 @@ public class TestePersistencia {
         l2.setNumeroVaga("2");
         l2.setVeiculo(v1);     
         
-        v1.addLocacao(l1);
-        v1.addLocacao(l2);
+        //v1.addLocacao(l1);
+        //v1.addLocacao(l2); //PODE SER SETADO ASSIM SEM PRECISAR CRIAR COLLECTION POIS FOI ALTERADO NA CLASSE
         
-      
+        locacoes.add(l1);
+        locacoes.add(l2);
+        
+        v1.setLocacoes(locacoes);
         jpa.persist(v1);
         
         jpa.persist(l1);
         jpa.persist(l2);
+        
+        for(Locacao o : locacoes){
+            System.out.println("Numero vaga: " + o.getNumeroVaga() + " Veiculo: " + o.getVeiculo().getMarca());
+        }
         
         
         
