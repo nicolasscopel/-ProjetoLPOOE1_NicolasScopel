@@ -148,7 +148,7 @@ public class TestePersistencia {
         Locacao l2 = new Locacao();
         l2.setDataEntrada(Calendar.getInstance());
         l2.setNumeroVaga("2");
-        l2.setVeiculo(v1);     
+        l2.setVeiculo(v1);   // MUDAR PARA V2 PARA ALTERAR TESTE 3  
         
         //v1.addLocacao(l1);
         //v1.addLocacao(l2); //PODE SER SETADO ASSIM SEM PRECISAR CRIAR COLLECTION POIS FOI ALTERADO NA CLASSE
@@ -158,12 +158,13 @@ public class TestePersistencia {
         
         v1.setLocacoes(locacoes);
         jpa.persist(v1);
+       // jpa.persist(v2); //TIRAR COMENTARIO PARA MUDAR O TESTE 3
         
         jpa.persist(l1);
         jpa.persist(l2);
         
         for(Locacao o : locacoes){
-            System.out.println("Numero vaga: " + o.getNumeroVaga() + " Veiculo: " + o.getVeiculo().getMarca());
+            System.out.println("Numero vaga: " + o.getNumeroVaga() + " Veiculo: " + o.getVeiculo().getModelo());
         }
         
         
@@ -171,7 +172,7 @@ public class TestePersistencia {
     }
     
     
-  // @Test
+    //@Test
     public void testePersistenciaMaisCompleto() throws Exception{
         
         Proprietario p1 = new Proprietario(); //CRIANDO E PERSISTINDO PROPRIETARIO 1
